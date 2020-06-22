@@ -8,7 +8,9 @@ Except `set()` and `get()` functions, I also defined `_set_head()`, `_remove_nod
 
 
 Time complexity of `set()`: add an item in a hashmap, O(1)
+
 Space complexity of `set()`: capacity of the hashmap, O(n)
 
 Time complexity of `get()`: retrieve an item from a hashmap, O(1)
+
 Space complexity of `get()`: allocate one item, O(1)
