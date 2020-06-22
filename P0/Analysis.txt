@@ -1,0 +1,21 @@
+Unscramble Computer Science Problems
+
+Task0.py
+Time Complexity: O(1+1), which could be simplified to O(1)
+Explanation: we have 2 lists and get 1 item respectively from one of the 2 lists, each operation is O(1)
+
+Task1.py
+Time Complexity: O(n+n), which could be simplified to O(n)
+Explanation: I have 2 lists and need to iterate from 1 to n in a linear manner. Thus, it ended up with O(2n)
+
+Task2.py
+Time Complexity: O(n+nlogn+1), which could be simplified to O(n+nlogn)
+Explanation: I iterate a list from 1 to n first, which is O(n). Then I sort the dictionary, which is O(nlogn). Finally, I get the first item from a list, which is O(1)
+
+Task3.py
+Time Complexity: O(n+nlogn)
+Explanation: I iterate a list from 1 to n first, which is O(n). Then I sort the dictionary, which is O(nlogn). 
+
+Task4.py
+Time Complexity: O(n+nlogn)
+Explanation: I iterate a list from 1 to n first, which is O(n). Then I sort the dictionary, which is O(nlogn). 
