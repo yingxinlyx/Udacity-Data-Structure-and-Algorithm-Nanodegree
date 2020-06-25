@@ -1,0 +1,3 @@
+Since Group is recursively defined, I use recursion to solve this problem. The function first checks if user is in the users list of current group, and then recursively checks if user is in any of the group in the groups list of current group.
+
+assume n = total number of users of current group and its sub groups, and m = total number of groups of current group and its sub groups, then time complexity is O(m+n), space complexity is O(1) or O(m) if stack space for recursion is calculated
