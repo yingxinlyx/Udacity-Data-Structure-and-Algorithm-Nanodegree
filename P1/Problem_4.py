@@ -20,17 +20,6 @@ class Group(object):
         return self.name
 
 
-parent = Group("parent")
-child = Group("child")
-sub_child = Group("subchild")
-
-sub_child_user = "sub_child_user"
-sub_child.add_user(sub_child_user)
-
-child.add_group(sub_child)
-parent.add_group(child)
-
-
 def is_user_in_group(user, group):
     """
     Return True if user is in the group, False otherwise.
@@ -50,3 +39,29 @@ def is_user_in_group(user, group):
             return True
 
     return False
+
+
+parent = Group("parent")
+child1 = Group("child1")
+child2 = Group("child2")
+sub_child = Group("subchild")
+child1.add_group(sub_child)
+parent.add_group(child1)
+parent.add_group(child2)
+
+sub_child.add_user("sub_child_user")
+child1.add_user("user1")
+child1.add_user("user2")
+child2.add_user("user3")
+
+# test case 1
+print(is_user_in_group("sub_child_user", child2))
+# False
+
+# test case 2
+print(is_user_in_group("user_a", parent))
+# False
+
+# test case 3
+print(is_user_in_group("user3", parent))
+# True
