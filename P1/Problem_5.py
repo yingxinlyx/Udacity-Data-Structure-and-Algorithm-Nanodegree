@@ -40,12 +40,13 @@ class BlockChain:
         return self
 
 
-# test case 1
+# test case
 s1 = "first data"
-s2 = "another data"
+s2 = "second data"
+s3 = "third data"
 
 blockChain = BlockChain()
-blockChain.add(s1).add(s2)
+blockChain.add(s1).add(s2).add(s3)
 
 node = blockChain.head
 while node:

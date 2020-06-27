@@ -16,6 +16,12 @@ def build_tree(d):
     for ch in d.keys():
         pq.put((d[ch], ch, TreeNode(ch)))
 
+    if pq.qsize() == 1:
+        freq, ch, node = pq.get()
+        root = TreeNode(freq)
+        root.left = node
+        return root
+
     while pq.qsize() > 1:
         a = pq.get()
         b = pq.get()
@@ -29,10 +35,10 @@ def build_tree(d):
 
 
 def traverse(root, d):
-    if root is None:
-        return
 
     def dfs(node, encode, d):
+        if node is None:
+            return
         if node.left is None and node.right is None:
             d[node.value] = encode
             return
@@ -61,6 +67,9 @@ def huffman_encoding(data):
 
 
 def huffman_decoding(data, tree):
+    if len(data) == 0:
+        return ""
+
     node = tree
     decode = ""
     i = 0
@@ -80,22 +89,32 @@ def huffman_decoding(data, tree):
 
 
 if __name__ == "__main__":
-    codes = {}
+    # test case 1
+    test1 = "The bird is the word"
+    print("The content of the data is: {}\n".format(test1))
 
-    a_great_sentence = "The bird is the word"
-
-    print("The size of the data is: {}\n".format(
-        sys.getsizeof(a_great_sentence)))
-    print("The content of the data is: {}\n".format(a_great_sentence))
-
-    encoded_data, tree = huffman_encoding(a_great_sentence)
-
-    print("The size of the encoded data is: {}\n".format(
-        sys.getsizeof(int(encoded_data, base=2))))
+    encoded_data, tree = huffman_encoding(test1)
     print("The content of the encoded data is: {}\n".format(encoded_data))
 
     decoded_data = huffman_decoding(encoded_data, tree)
+    print("The content of the decoded data is: {}\n".format(decoded_data))
 
-    print("The size of the decoded data is: {}\n".format(
-        sys.getsizeof(decoded_data)))
-    print("The content of the encoded data is: {}\n".format(decoded_data))
+    # test case 2
+    test2 = "xxxxx"
+    print("The content of the data is: {}\n".format(test2))
+
+    encoded_data, tree = huffman_encoding(test2)
+    print("The content of the encoded data is: {}\n".format(encoded_data))
+
+    decoded_data = huffman_decoding(encoded_data, tree)
+    print("The content of the decoded data is: {}\n".format(decoded_data))
+
+    # test case 3
+    test3 = "aabbccdd"
+    print("The content of the data is: {}\n".format(test3))
+
+    encoded_data, tree = huffman_encoding(test3)
+    print("The content of the encoded data is: {}\n".format(encoded_data))
+
+    decoded_data = huffman_decoding(encoded_data, tree)
+    print("The content of the decoded data is: {}\n".format(decoded_data))
