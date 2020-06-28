@@ -41,46 +41,41 @@ class LinkedList:
 
 
 def union(llist_1, llist_2):
-    cnt = {}
+    s = set()
     llist = LinkedList()
     node = llist_1.head
     while node:
         value = node.value
-        llist.append(value)
-        cnt[value] = cnt.get(value, 0) + 1
+        if value not in s:
+            llist.append(value)
+            s.add(value)
         node = node.next
 
     node = llist_2.head
     while node:
         value = node.value
-        if value not in cnt:
+        if value not in s:
             llist.append(value)
-        else:
-            cnt[value] -= 1
-            if cnt[value] == 0:
-                del cnt[value]
+            s.add(value)
         node = node.next
 
     return llist
 
 
 def intersection(llist_1, llist_2):
-    cnt = {}
+    s = set()
     llist = LinkedList()
     node = llist_1.head
     while node:
-        value = node.value
-        cnt[value] = cnt.get(value, 0) + 1
+        s.add(node.value)
         node = node.next
 
     node = llist_2.head
     while node:
         value = node.value
-        if value in cnt:
+        if value in s:
             llist.append(value)
-            cnt[value] -= 1
-            if cnt[value] == 0:
-                del cnt[value]
+            s.remove(value)
         node = node.next
 
     return llist
@@ -100,9 +95,9 @@ for i in element_2:
     linked_list_2.append(i)
 
 print(union(linked_list_1, linked_list_2))
-# 3 -> 2 -> 4 -> 35 -> 6 -> 65 -> 6 -> 4 -> 3 -> 21 -> 32 -> 9 -> 1 -> 11 -> 1 ->
+# 3 -> 2 -> 4 -> 35 -> 6 -> 65 -> 21 -> 32 -> 9 -> 1 -> 11 ->
 print(intersection(linked_list_1, linked_list_2))
-# 6 -> 4 -> 6 -> 21 ->
+# 6 -> 4 -> 21 ->
 
 # Test case 2
 linked_list_3 = LinkedList()
@@ -118,7 +113,7 @@ for i in element_2:
     linked_list_4.append(i)
 
 print(union(linked_list_3, linked_list_4))
-# 3 -> 2 -> 4 -> 35 -> 6 -> 65 -> 6 -> 4 -> 3 -> 23 -> 1 -> 7 -> 8 -> 9 -> 11 -> 21 -> 1 ->
+# 3 -> 2 -> 4 -> 35 -> 6 -> 65 -> 23 -> 1 -> 7 -> 8 -> 9 -> 11 -> 21 ->
 print(intersection(linked_list_3, linked_list_4))
 # no output
 
