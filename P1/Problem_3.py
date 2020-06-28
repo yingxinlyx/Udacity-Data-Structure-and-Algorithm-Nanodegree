@@ -118,3 +118,13 @@ if __name__ == "__main__":
 
     decoded_data = huffman_decoding(encoded_data, tree)
     print("The content of the decoded data is: {}\n".format(decoded_data))
+
+    # test case 4
+    test4 = ""
+    print("The content of the data is: {}\n".format(test4))
+
+    encoded_data, tree = huffman_encoding(test4)
+    print("The content of the encoded data is: {}\n".format(encoded_data))
+
+    decoded_data = huffman_decoding(encoded_data, tree)
+    print("The content of the decoded data is: {}\n".format(decoded_data))

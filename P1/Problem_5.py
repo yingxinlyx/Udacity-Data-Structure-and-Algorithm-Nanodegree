@@ -40,7 +40,7 @@ class BlockChain:
         return self
 
 
-# test case
+# test case 1
 s1 = "first data"
 s2 = "second data"
 s3 = "third data"
@@ -54,3 +54,31 @@ while node:
     print(node.data.hash)
     print(node.data.previous_hash)
     node = node.next
+# any node's previous hash should be the hash of next node
+
+# test case 2
+s1 = "aaa"
+s2 = "aaa"
+s3 = "aaa"
+
+blockChain = BlockChain()
+blockChain.add(s1).add(s2).add(s3)
+
+node = blockChain.head
+while node:
+    print(node.data.data)
+    print(node.data.hash)
+    print(node.data.previous_hash)
+    node = node.next
+# even though the data is the same, hash should be different
+
+# test case 3
+blockChain = BlockChain()
+
+node = blockChain.head
+while node:
+    print(node.data.data)
+    print(node.data.hash)
+    print(node.data.previous_hash)
+    node = node.next
+# no output
