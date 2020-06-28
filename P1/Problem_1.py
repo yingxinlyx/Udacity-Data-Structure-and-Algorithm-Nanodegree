@@ -25,6 +25,8 @@ class LRU_Cache(object):
             return -1
 
     def set(self, key, value):
+        if self.capacity == 0:
+            return
         # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item. 
         if key in self.cache:
             self._remove_node(self.cache[key])

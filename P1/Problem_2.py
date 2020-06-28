@@ -17,7 +17,9 @@ def find_files(suffix, path):
        a list of paths
     """
     if not os.path.isdir(path):
-        return 'Invalid path'
+        if os.path.isfile(path) and path.endswith(suffix):
+            return [path]
+        return []
     
     files = os.listdir(path)
     
