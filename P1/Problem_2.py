@@ -33,5 +33,13 @@ def find_files(suffix, path):
 
 
 
-# Tests
+# Test 1
 print(find_files('.c', 'testdir'))
+
+
+# Test 2
+print(find_files('.h', 'testdir'))
+
+
+# Test 3
+print(find_files('.c', 'dir'))
