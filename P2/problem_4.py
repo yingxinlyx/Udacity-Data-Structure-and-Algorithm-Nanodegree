@@ -5,7 +5,20 @@ def sort_012(input_list):
     Args:
        input_list(list): List to be sorted
     """
-    pass
+    zero = 0
+    i = 0
+    two = len(input_list) - 1
+    while i <= two:
+        if input_list[i] == 0:
+            input_list[i], input_list[zero] = input_list[zero], input_list[i]
+            zero += 1
+            i += 1
+        elif input_list[i] == 2:
+            input_list[i], input_list[two] = input_list[two], input_list[i]
+            two -= 1
+        else:
+            i += 1
+    return input_list
 
 
 def test_function(test_case):
@@ -23,3 +36,5 @@ test_function([
     1
 ])
 test_function([0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2])
+test_function([2])
+test_function([])

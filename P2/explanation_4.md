@@ -1,0 +1,3 @@
+I use a one pass algorithm to solve this problem. In the while loop, I keep loop invariant as: numbers at index in [0, zero) are 0, numbers at index in [zero, i) are 1, numbers at index in (two, last index] are 2, numbers at index in [i, two] are not visited. So when I meet 0, I swap it with number at index zero, because number at index zero should be 1 or 0 if zero equals i, I can increment both zero and i by 1. If I meet 2, I swap it with number at index two, because number at index two is not visited, I just decrement two by 1 and don't increment i. If I meet 1, I keep going by increment i by 1.
+
+Time complexity is O(n) where n is the length of the input list, since each element is visited only once. Space complexity is O(1).

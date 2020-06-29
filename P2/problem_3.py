@@ -7,7 +7,13 @@ def rearrange_digits(input_list):
     Returns:
        (int),(int): Two maximum sums
     """
-    pass
+    input_list.sort(reverse=True)
+    res = [0, 0]
+    for i in range(len(input_list)):
+        idx = i % 2
+        res[idx] = 10 * res[idx] + input_list[i]
+
+    return res
 
 
 def test_function(test_case):
@@ -20,4 +26,5 @@ def test_function(test_case):
 
 
 test_function([[1, 2, 3, 4, 5], [542, 31]])
-test_case = [[4, 6, 2, 5, 9, 8], [964, 852]]
+test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
+test_function([[0, 1, 0], [10, 0]])

@@ -1,0 +1,3 @@
+I use binary search to solve this problem. For a sorted array, it's obvious that binary search can be used to find the target. For a rotated sorted array without duplicates, just need to check which part is sorted. If target is in the range of sorted part, do binary search in that part, otherwise do binary search in the other part.
+
+Time complexity is O(logn) where n is the length of the input array. Space complexity is O(1).
