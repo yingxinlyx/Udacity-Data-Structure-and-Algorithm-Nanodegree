@@ -1,0 +1,5 @@
+I implement trie in a standard way. I just want to mention how suffixes function is implemented. To find all the suffixes of a trie node, I first check if current node is the end of any word. If it is, the suffix passed to the function can be a suffix. Then I use recursion to search all the branch to add all suffixes to result, I also add the charactor representing the branch to suffix and pass it to the recursion function to keep track of current suffix. 
+
+The time complexity to build a trie using a word list is O(mn), where n is the number of words and m is the average length of all words. Because insert a word takes O(m) time and there are n words. The space complexity is also O(mn), since at most that many trie node can be created.
+
+For function f, find takes O(p) time and O(1) space where p is the length of the prefix. Get all suffix take O(q) time where q is the number of trie nodes under the specific node since all nodes under that node are visited. And corresponding space complexity is O(hn), where n is the number of words and h is the height of the sub trie, because I copy the results of all child node in a parent node.
