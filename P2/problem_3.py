@@ -1,3 +1,24 @@
+def desc_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    mid = len(arr) // 2
+    left = desc_sort(arr[0:mid])
+    right = desc_sort(arr[mid:])
+    i = 0
+    j = 0
+    res = []
+    while i < len(left) and j < len(right):
+        if left[i] >= right[j]:
+            res.append(left[i])
+            i += 1
+        else:
+            res.append(right[j])
+            j += 1
+    res.extend(left[i:])
+    res.extend(right[j:])
+    return res
+
+
 def rearrange_digits(input_list):
     """
     Rearrange Array Elements so as to form two number such that their sum is maximum.
@@ -7,13 +28,15 @@ def rearrange_digits(input_list):
     Returns:
        (int),(int): Two maximum sums
     """
-    input_list.sort(reverse=True)
-    res = [0, 0]
-    for i in range(len(input_list)):
+    if input_list is None:
+        return [0, 0]
+    sorted = desc_sort(input_list)
+    res = ['0', '0']
+    for i in range(len(sorted)):
         idx = i % 2
-        res[idx] = 10 * res[idx] + input_list[i]
+        res[idx] += str(sorted[i])
 
-    return res
+    return [int(res[0]), int(res[1])]
 
 
 def test_function(test_case):
@@ -28,3 +51,5 @@ def test_function(test_case):
 test_function([[1, 2, 3, 4, 5], [542, 31]])
 test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
 test_function([[0, 1, 0], [10, 0]])
+test_function([[], [0, 0]])
+test_function([None, [0, 0]])

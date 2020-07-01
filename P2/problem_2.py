@@ -48,3 +48,6 @@ test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 8])
 test_function([[6, 7, 8, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 10])
+test_function([[], 6])
+test_list = [i for i in range(1011, 10000)] + [i for i in range(-1000, 1011)]
+test_function([test_list, -60])
